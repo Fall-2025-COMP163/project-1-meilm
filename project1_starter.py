@@ -181,25 +181,26 @@ if __name__ == "__main__":
     # display_character(char)
     # save_character(char, "my_character.txt")
     # loaded = load_character("my_character.txt")
-    name = input('\nEnter your character\'s name:\n')
-    char_class = input('Enter your character\'s class:\nWarrior, Mage, Rogue, or Cleric: ')
-
-    print('creating dict...')
-    char = create_character(name, char_class)
-
-    print('displaying dict...')
-    display_character(char)
-
-    print('levelling up...')
-    level_up(char)
-    display_character(char)
+    get_user_input = False
+    if get_user_input == True:
+        name = input('\nEnter your character\'s name:\n')
+        char_class = input('Enter your character\'s class:\nWarrior, Mage, Rogue, or Cleric: ')
+        print('creating dict...')
+        char = create_character(name, char_class)
+        print('displaying dict...')
+        display_character(char)
+        print('levelling up...')
+        level_up(char)
+        display_character(char)
+        save_file_name = input('\nWhat is the name of the file you want to save your character to?\n')
+        print('saving data...')
+        print(save_character(char, save_file_name))
+        print('loading data...')
+        print(load_character(save_file_name))
+        print('Sucess! No errors!')
+    else: 
+        char = create_character("TestHero", "Warrior")
+        display_character(char)
+        save_character(char, "my_character.txt")
+        loaded = load_character("my_character.txt")
     
-    save_file_name = input('\nWhat is the name of the file you want to save your character to?\n')
-
-    print('saving data...')
-    print(save_character(char, save_file_name))
-    
-    print('loading data...')
-    print(load_character(save_file_name))
-
-    print('Sucess! No errors!')

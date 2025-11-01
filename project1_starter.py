@@ -17,26 +17,28 @@ COMP 163 - Project 1: Character Creator & Saving/Loading
     
 
 from collections import namedtuple
-import pytest # A failed attempt to get the test files to run so that I can test them
+import pytest
 import math
 import os
 
+class_list = [warrior, mage, rogue, cleric]
 def create_character(name, character_class):
     '''
     Creates a new character dictionary with calculated stats
     Returns: dictionary with keys: name, class, level, strength, magic, health, gold
     '''
-    
-    character_dict = {}
-    character_dict['name'] = name
-    character_dict['class'] = character_class
-    character_dict['level'] = 1
-    character_stats = calculate_stats(character_class, 1)
-    character_dict['strength'] = character_stats.strength
-    character_dict['magic'] = character_stats.magic
-    character_dict['health'] = character_stats.health
-    character_dict['gold'] = 100
-    return character_dict
+    if character_class.lower() in class_list:
+        character_dict = {}
+        character_dict['name'] = name
+        character_dict['class'] = character_class
+        character_dict['level'] = 1
+        character_stats = calculate_stats(character_class, 1)
+        character_dict['strength'] = character_stats.strength
+        character_dict['magic'] = character_stats.magic
+        character_dict['health'] = character_stats.health
+        character_dict['gold'] = 100
+        return character_dict
+    else: return False
 
 def calculate_stats(character_class, level):
     '''

@@ -21,7 +21,7 @@ import pytest
 import math
 import os
 
-class_list = [warrior, mage, rogue, cleric]
+class_list = ['warrior', 'mage', 'rogue', 'cleric']
 def create_character(name, character_class):
     '''
     Creates a new character dictionary with calculated stats

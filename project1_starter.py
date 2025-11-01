@@ -28,18 +28,18 @@ def create_character(name, character_class):
     Returns: dictionary with keys: name, class, level, strength, magic, health, gold
     '''
     if character_class.lower() in class_list:
-        character_dict = {}
-        character_dict['name'] = name
-        character_dict['class'] = character_class
-        character_dict['level'] = 1
-        character_stats = calculate_stats(character_class, 1)
-        character_dict['strength'] = character_stats.strength
-        character_dict['magic'] = character_stats.magic
-        character_dict['health'] = character_stats.health
-        character_dict['gold'] = 100
-        return character_dict
-    else: return False
-
+        character_class = 'Warrior'
+        print("That is not a valid class. As a fallback, your class has been set to: Warrior.")
+    character_dict = {}
+    character_dict['name'] = name
+    character_dict['class'] = character_class
+    character_dict['level'] = 1
+    character_stats = calculate_stats(character_class, 1)
+    character_dict['strength'] = character_stats.strength
+    character_dict['magic'] = character_stats.magic
+    character_dict['health'] = character_stats.health
+    character_dict['gold'] = 100
+    return character_dict
 def calculate_stats(character_class, level):
     '''
     Calculates base stats based on class and level

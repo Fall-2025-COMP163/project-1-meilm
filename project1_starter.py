@@ -120,10 +120,11 @@ def load_character(filename):
         with open(filename, 'r') as save_data:
             for line in save_data:
                 key_value_pair = line.split(': ')
-                if key_value_pair[value].isnumeric():
+                if key_value_pair[value].strip().isnumeric():
                     character_dict[key_value_pair[key].lower()] = int(key_value_pair[value])
                 else: character_dict[key_value_pair[key].split(' ')[-1].lower()] = key_value_pair[value].strip()
         return character_dict
+    else: return None
     
 def display_character(character):
     '''
@@ -182,6 +183,7 @@ if __name__ == "__main__":
         print(save_character(char, save_file_name))
         print('loading data...')
         print(load_character(save_file_name))
+        print(char)
         print('Sucess! No errors!')
     else: 
         char = create_character("TestHero", "Warrior")

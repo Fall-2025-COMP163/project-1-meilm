@@ -14,6 +14,7 @@ COMP 163 - Project 1: Character Creator & Saving/Loading
     # Helped me see how to reformat the save file data to be able to turn it into a dictionary in "load_character"
     # Helped me debug Value Errors caused by me erroneously using ".isalnum()" instead of ".isnumeric()" "load_character"
     # Solved a logic error causing the dictionary keys to break when reading from "load_character" caused by me omitting the parenthesis from an ".lower()" string operation
+    # Showed me how to use .update() to directly modify "char" from inside "level_up" while still passing all the test_cases
     
 
 from collections import namedtuple
@@ -157,37 +158,31 @@ def level_up(character):
     Returns: None
     '''
     global char
-    char['level'] += 1
+    character['level'] += 1
     character_updated_stats = calculate_stats(char['class'], char['level'])
-    char['strength'] = character_updated_stats.strength
-    char['magic'] = character_updated_stats.magic
-    char['health'] = character_updated_stats.health
+    character['strength'] = character_updated_stats.strength
+    character['magic'] = character_updated_stats.magic
+    character['health'] = character_updated_stats.health
+    char.update(character)
 
 if __name__ == "__main__":
     print("=== CHARACTER CREATOR ===")
     print("Test your functions here!")
     
-    get_user_input = True
-    if get_user_input == True:
-        name = input('\nEnter your character\'s name:\n')
-        char_class = input('Enter your character\'s class:\nWarrior, Mage, Rogue, or Cleric: ')
-        print('creating dict...')
-        char = create_character(name, char_class)
-        print('displaying dict...')
-        display_character(char)
-        print('levelling up...')
-        level_up(char)
-        display_character(char)
-        save_file_name = input('\nWhat is the name of the file you want to save your character to?\n')
-        print('saving data...')
-        print(save_character(char, save_file_name))
-        print('loading data...')
-        print(load_character(save_file_name))
-        print(char)
-        print('Sucess! No errors!')
-    else: 
-        char = create_character("TestHero", "Warrior")
-        display_character(char)
-        save_character(char, "my_character.txt")
-        loaded = load_character("my_character.txt")
-    
+
+    name = input('\nEnter your character\'s name:\n')
+    char_class = input('Enter your character\'s class:\nWarrior, Mage, Rogue, or Cleric: ')
+    print('creating dict...')
+    char = create_character(name, char_class)
+    print('displaying dict...')
+    display_character(char)
+    print('levelling up...')
+    level_up(char)
+    display_character(char)
+    save_file_name = input('\nWhat is the name of the file you want to save your character to?\n')
+    print('saving data...')
+    print(save_character(char, save_file_name))
+    print('loading data...')
+    print(load_character(save_file_name))
+    print(char)
+    print('Sucess! No errors!')

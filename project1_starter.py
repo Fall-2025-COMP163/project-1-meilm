@@ -159,7 +159,7 @@ def level_up(character):
     '''
     global char
     character['level'] += 1
-    character_updated_stats = calculate_stats(char['class'], char['level'])
+    character_updated_stats = calculate_stats(character['class'], character['level'])
     character['strength'] = character_updated_stats.strength
     character['magic'] = character_updated_stats.magic
     character['health'] = character_updated_stats.health

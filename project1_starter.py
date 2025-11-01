@@ -154,16 +154,14 @@ Gold: {character['gold']}''')
 def level_up(character):
     '''
     Increases character level and recalculates stats
-    Modifies the character dictionary directly
+    Modifies the character dictionary in place.
     Returns: None
     '''
-    global char
     character['level'] += 1
     character_updated_stats = calculate_stats(character['class'], character['level'])
     character['strength'] = character_updated_stats.strength
     character['magic'] = character_updated_stats.magic
     character['health'] = character_updated_stats.health
-    char.update(character)
 
 if __name__ == "__main__":
     print("=== CHARACTER CREATOR ===")

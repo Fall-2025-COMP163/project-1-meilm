@@ -3,7 +3,7 @@
 # COMP 163 - Project 1: Character Creator & Chronicles
 # 🎯 Project Overview
 
-Build a text-based RPG character creation and story progression system that demonstrates mastery of functions and file I/O operations.
+A text-based RPG character creation and story progression system that demonstrates mastery of functions and file I/O operations.
 
 ## Functions 
 - create_character(name, character_class) - Create new character
@@ -13,15 +13,15 @@ Build a text-based RPG character creation and story progression system that demo
 - display_character(character) - Display character info
 - level_up(character) - Increase character level
 
-# 🎭 Character Classes
-| Class | Strength       | Magic        | Health       |
-| --------------- | -------------- | ------------ | ------------ |
-| Warrior         | High | Low | High h  |
-| Mage            | Low   | High    | Medium |
-| Rogue           | Medium | Medium | Low    |
-| Cleric          | Medium | High  | High   |
+## 🎭 Character Classes
+| Class | Strength | Magic | Health |
+| - | - | - | - |
+| Warrior | High | Low | High |
+| Mage | Low | High | Medium |
+| Rogue | Medium | Medium | Low |
+| Cleric | Medium | High  | High |
 
 # To run the program:
 - download project1_starter.py
-- In python, navigate to the directory it is saved to
+- In python, navigate to the directory the file is saved to
 - type in the following command: `python project1_starter.py`

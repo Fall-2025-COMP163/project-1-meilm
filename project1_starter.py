@@ -17,6 +17,7 @@ COMP 163 - Project 1: Character Creator & Saving/Loading
     
 
 from collections import namedtuple
+import pytest
 import math
 import os
 
@@ -181,6 +182,7 @@ if __name__ == "__main__":
     # display_character(char)
     # save_character(char, "my_character.txt")
     # loaded = load_character("my_character.txt")
+    
     get_user_input = False
     if get_user_input == True:
         name = input('\nEnter your character\'s name:\n')

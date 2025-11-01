@@ -17,7 +17,6 @@ COMP 163 - Project 1: Character Creator & Saving/Loading
     
 
 from collections import namedtuple
-import pytest
 import math
 import os
 
@@ -27,7 +26,7 @@ def create_character(name, character_class):
     Creates a new character dictionary with calculated stats
     Returns: dictionary with keys: name, class, level, strength, magic, health, gold
     '''
-    if character_class.lower() in class_list:
+    if character_class.lower() not in class_list:
         character_class = 'Warrior'
         print("That is not a valid class. As a fallback, your class has been set to: Warrior.")
     character_dict = {}
